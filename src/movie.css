@@ -1,0 +1,7 @@
+.movie-list{
+ display: flex;
+ flex-wrap: nowrap;
+ margin-right: 12px;
+ justify-content: space-around;
+}
+
