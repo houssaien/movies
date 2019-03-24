@@ -1,7 +1,10 @@
 .movie-list{
  display: flex;
- flex-wrap: nowrap;
- margin-right: 12px;
+ flex-wrap: wrap;
  justify-content: space-around;
 }
 
+.spi{
+    text-align: center;
+   
+}

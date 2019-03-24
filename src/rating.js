@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-     import StarRatingComponent from 'react-star-rating-component';
+import StarRatingComponent from 'react-star-rating-component';
 class Rating extends Component {
     constructor() {
         super();

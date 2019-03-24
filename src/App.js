@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-
 import Header from './header'
+import withLoadingSpinner from './withLoadingSpinner'
 import Liste from './liste'
 
 import './App.css';
@@ -29,24 +29,55 @@ const newstab=[{
   article:'https://media.senscritique.com/media/000018033529/source_big/Forgiven.jpg',
   rating: 4,
   }]
+
+
+  const dataLoader = () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => { 
+        const newstab = {
+        
+        }
+        resolve(newstab)
+      }, 2000)
+    })
+  }
+
+ 
+
 class App extends Component {
   constructor(props){
     super(props)
       this.state={
+       id:0,
         rating: 1,
-   news:newstab ,
-   filtred:newstab   
+        news:newstab ,
+         filtred:newstab  ,
+   
       }
+    }
+    
+    addMovie=(x)=>
+    {
+           this.setState({
+              news:this.state.news.concat(x),
+              })
+    }
+    remove=(id)=>
+    {
+        this.setState({
+          news:this.state.news.filter((el,index)=>(index!==id))
+        })
     }
   
   serach(keyword){
-    let filter1=this.state.news.filter((el,i)=>{return el.title.toLocaleLowerCase().indexOf(keyword)>-1})
-    this.setState({filtred:filter1})
+    let filter1=newstab.filter((el,i)=>{return el.title.toLocaleLowerCase().indexOf(keyword)>-1})
+    this.setState({news:filter1})
   }
 
+   
   serachrating1(val){
-    let filter1=this.state.news.filter((el,i)=>{return el.rating === val})
-    this.setState({filtred:filter1})
+    let filter1=newstab.filter((el,i)=>{return el.rating === val})
+    this.setState({news:filter1})
   }
   render() {
 
@@ -57,12 +88,15 @@ class App extends Component {
         
         <Header  searchname={(keyword)=>this.serach(keyword)} 
                  serachrating1={(val)=>this.serachrating1(val)}
+                 addMovie={this.addMovie}
+
         />
         <br/><br/>
-        <Liste news={this.state.filtred}/>
+        <Liste news={this.state.news}
+               remove={(id)=>this.remove(id)}/>
       </div>
     );
   }
 }
 
-export default App;
+export default withLoadingSpinner(dataLoader)(App)

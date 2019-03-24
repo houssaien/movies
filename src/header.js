@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Rating from './rating';
+import Modal from './modal';
 import './movie.css';
 import {
     Navbar,
@@ -12,7 +13,7 @@ class Header extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-           
+         
             keyword:'',
          }
          this.toggle = this.toggle.bind(this);
@@ -20,6 +21,7 @@ class Header extends Component {
            isOpen: false
          };
     }
+
     
     toggle() {
         this.setState({
@@ -46,7 +48,7 @@ handelchange=(event)=>{
     <Rating serachrating1={val=>this.props.serachrating1(val)} />
     </Nav>
     <Form inline>
-    
+      <Modal addMovie={this.props.addMovie}/>
       <FormControl type="text" placeholder="Search" className="mr-sm-2"  onChange={this.handelchange} />
     
     </Form>
