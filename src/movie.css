@@ -5,10 +5,11 @@
 
 }
 
-.spi{
-    text-align: center;
-   
+.spi{    
+    margin-left: 700px;
+    margin-top: 300px;
 }
+
 .movie{
     width: 300px;
     height: 300px;
