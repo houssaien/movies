@@ -17,7 +17,7 @@ class Item extends Component {
         return ( <div>
             
         <Card className="card">
-        <CardImg top width="200px" height="300px" src={item.article}alt="Card image cap" />
+        <CardImg  className="pic" src={item.article}alt="Card image cap" />
         <CardBody>
          
           <CardSubtitle>{item.title}</CardSubtitle>

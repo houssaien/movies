@@ -2,9 +2,19 @@
  display: flex;
  flex-wrap: wrap;
  justify-content: space-around;
+
 }
 
 .spi{
     text-align: center;
    
+}
+.movie{
+    width: 300px;
+    height: 300px;
+}
+
+.pic{
+    width: 300px;
+    height: 300px;
 }
