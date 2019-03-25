@@ -51,7 +51,7 @@ class App extends Component {
        id:0,
         rating: 1,
         news:newstab ,
-         filtred:newstab  ,
+        //  filtred:newstab  ,
    
       }
     }
@@ -62,10 +62,10 @@ class App extends Component {
               news:this.state.news.concat(x),
               })
     }
-    remove=(id)=>
-    {
+    remove=(i)=>
+    { 
         this.setState({
-          news:this.state.news.filter((el,index)=>(index!==id))
+          news:this.state.news.filter((el,index)=>(index!=i))
         })
     }
   
@@ -80,7 +80,7 @@ class App extends Component {
     this.setState({news:filter1})
   }
   render() {
-
+         console.log(this.state.news)
     return (
       <div className="App">
     
@@ -93,7 +93,7 @@ class App extends Component {
         />
         <br/><br/>
         <Liste news={this.state.news}
-               remove={(id)=>this.remove(id)}/>
+               remove={this.remove}/>
       </div>
     );
   }

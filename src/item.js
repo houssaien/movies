@@ -10,16 +10,10 @@ class Item extends Component {
           }
     }
 
-    remove=(id)=>
-    {
-        this.setState({
-          news:this.state.news.filter((el,index)=>(index!==id))
-        })
-    }
     render() { 
 
        
-        const {item}=this.props
+        const {item,remove,id}=this.props
         return ( <div>
             
         <Card className="card">
@@ -33,7 +27,7 @@ class Item extends Component {
           value={item.rating}
 
         /></CardText>
-        <Button color="danger"   onChange={id=>item.remove(id)}>Delete</Button>
+        <Button color="danger" onClick={()=>remove(id)}>Delete</Button>
         </CardBody>
       </Card>
       
